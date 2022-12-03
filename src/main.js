@@ -1,20 +1,20 @@
-import link from"./page/home.js"
+import home from"./page/home.js"
 import gerarLinks from"./page/gerarLinks.js"
 import minisite from "./page/minisite.js"
-import {router, navigateTo}  from"./lib/index.js"
+import areaAdm from "./page/areaAdm.js"
+import {Router, navigateTo}  from"./lib/index.js"
 
 const URL = location.href.includes("?") 
 
-
-//Auth
+//Router fluxo
 if (URL) {    
-     router({minisite})  
+     Router({minisite})  
 } else if(localStorage.hasOwnProperty("dono")) { 
-     navigateTo("gerarLinks")
-     router({gerarLinks, minisite})
+     navigateTo("/gerarLinks")
+     Router({gerarLinks})
 } else{    
-     navigateTo("/link")
-     router({link})
+     navigateTo("/home")
+     Router({home})
 }
 
 
